@@ -1,0 +1,38 @@
+---
+title: "Análisis Carrera Luz 2022"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(paqueteMET)
+data("CarreraLuz22")
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Edad
+
+```{r}
+hist(CarreraLuz22$edad)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Tiempo de carrera
+
+```{r}
+boxplot(CarreraLuz22$timerun/60)
+```
+
+### Comparación Edad vs Velocidad en min
+
+```{r}
+plot(CarreraLuz22$edad,CarreraLuz22$timerun/60)
+```
+
